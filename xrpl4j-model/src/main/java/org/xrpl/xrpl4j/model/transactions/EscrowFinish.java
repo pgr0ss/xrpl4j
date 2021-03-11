@@ -8,12 +8,11 @@ import com.google.common.primitives.UnsignedInteger;
 import com.google.common.primitives.UnsignedLong;
 import com.ripple.cryptoconditions.Condition;
 import com.ripple.cryptoconditions.Fulfillment;
+import java.util.Objects;
+import java.util.Optional;
 import org.immutables.value.Value;
 import org.xrpl.xrpl4j.model.flags.Flags;
 import org.xrpl.xrpl4j.model.immutables.FluentCompareTo;
-
-import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Deliver XRP from a held payment to the recipient.
@@ -39,7 +38,7 @@ public interface EscrowFinish extends Transaction {
    * @return An {@link XrpCurrencyAmount} representing the computed fee.
    * @see "https://xrpl.org/escrowfinish.html"
    */
-  static XrpCurrencyAmount computeFee(final XrpCurrencyAmount currentLedgerFeeDrops, final Fulfillment fulfillment) {
+  static XrpCurrencyAmount computeFee(final XrpCurrencyAmount currentLedgerFeeDrops, final Fulfillment<?> fulfillment) {
     Objects.requireNonNull(currentLedgerFeeDrops);
     Objects.requireNonNull(fulfillment);
 

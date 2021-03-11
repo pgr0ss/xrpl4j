@@ -378,6 +378,13 @@
           <configuration>
             <source>${maven.compiler.source}</source>
             <target>${maven.compiler.target}</target>
+            <compilerArgs>
+              <arg>-Xlint:all</arg>
+              <arg>-Xlint:-deprecation</arg>
+              <arg>-Xlint:-processing</arg>
+              <arg>-Xlint:-serial</arg>
+              <arg>-Werror</arg>
+            </compilerArgs>
           </configuration>
         </plugin>
 
